@@ -13,6 +13,6 @@ hs_err_pid*
 
 # Directories
 build
+dist
 Distribute
 nbproject/private
-
