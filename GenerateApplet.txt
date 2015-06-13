@@ -1,0 +1,49 @@
+Applet generieren:
+
+1. LogicAnalyzer-Ordner kopieren in LogicAnalyzerApplet
+
+2. LogicAnalyzer-Ordner und LogicAnalyzer.jar unmounten, LogicAnalyzerApplet-Ordner mounten
+
+3. Form-Editor: [JFrame]->Events->windowClosing removen
+
+4. Form-Editor: [JFrame]->Code Generation->Generate pack() removen
+
+5. Form-Editor: [JFrame]->Properties->Title removen
+
+6. Code-Editor: Main()-Methode auskommentieren
+
+7. Explorer[Filesystems]: LogicAnalyzer->class LogicAnalyzer->Properties->Extends auf JApplet
+
+8. Explorer[Filesystems]: LogicAnalyzer->Form LogicAnalyzer->reload Form (Meldungen bestätigen)
+
+9. Explorer[Filesystems]: LogicAnalyzer->Execution->Debugger auf Applet Debugging
+
+10. Explorer[Filesystems]: LogicAnalyzer->Execution->Executor auf Applet Execution
+
+11. LogicAnalyzer compilieren
+
+12. LogicAnalyzerApplet\Distribute\LogicAnalyzer.jar löschen
+
+13. Neues JAR (Distribute\LogicAnalyzerApplet.jar) erstellen, mounten und compilieren
+    - File Filter: Regular Expression (\.class$)|(\.ttf$)
+    - Basic attributes
+
+14. LogicAnalyzerApplet.jar in den LogicAnalyzer\Distribute Ordner kopieren.
+
+15. Alle Dateien im LogicAnalyzer\Distribute Ordner ausser nbattrs und *.jarContent in ein 
+    Zip LogicAnalyzer.zip packen
+
+
+
+
+
+
+
+
+
+
+13. Ordner Distribute: Neue JAR-Archiv (LogicAnalyzerApplet.jar) erstellen
+    - JAR Recipe Filter: Classes only
+    - Content: Ganzer LogicAnalyzerApplet-Ornder
+    - JAR Manifest: Generate Basic Attributes (Specified By löschen)
+    - JAR Manifest: Attribut setzen: Main-Class: LogicAnalyzer
