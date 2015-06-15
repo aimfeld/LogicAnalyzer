@@ -12,4 +12,4 @@ This program was developed in 2004 and is not actively maintained.
 
 ## User Interface
 
-![User interface](aimfeld.ch/logicanalyzer/images/logicanalyzer-ui.png)
+![User interface](http://aimfeld.ch/logicanalyzer/images/logicanalyzer-ui.png)
