@@ -9,3 +9,7 @@ This program was developed in 2004 and is not actively maintained.
 
 ## Project Website
 - http://aimfeld.ch/logicanalyzer/anleitung.html
+
+## User Interface
+
+![User interface](http://aimfeld.ch/logicanalyzer/images/logicanalyzer-ui.png)
