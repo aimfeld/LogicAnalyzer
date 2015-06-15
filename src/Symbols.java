@@ -70,16 +70,16 @@ public class Symbols
     // Std(Standard)-Junktorsymbole, falls LogicFont nicht geladem werden kann
     private static final String BinJunctors = "\u0600\u0601\u0602\u0603\u0604\u0605\u0606\u0607\u0608\u0609\u060A\u060B\u060C\u060D\u060E\u060F"; // Zugriff über Junktorindex
     private static final String StdBinJunctors = "\u0668\u2560\u2563\u2020\u0667\u2190\u2192\u007C\u2194\u256B\u2518\u2510\u2514\u250C\u252C\u2534"; // Zugriff über Junktorindex
-    private static final String UnJunctors = "\u0610";                         // Unäre Junktoren
+    private static final String UnJunctors = "\u00AC";                         // Unäre Junktoren (\u0610 does not work properly, use standard
     private static final String StdUnJunctors = "\u00AC";                         // Unäre Junktoren
     
     // Namen der Junktoren, zB für Tooltips
     private static final String[] BinJunctorNames = // Zugriff über Junktorindex
-    {"Konjunktion", "Postsektor", "Präsektor", "Rejektion", "Disjunktion", "Replikation", "Konditional",
-     "Sheffer-Strich", "Bikonditional", "Kontravalenz", "Präpensor", "Pränonpensor", "Postpensor", 
-     "Postnonpensor", "Tautologator", "Antilogator"};
+    {"Conjunction (and)", "Postsector", "Presector", "Rejection", "Disjunction (or)", "Replication", "Conditional (if then)",
+     "Sheffer-stroke", "Biconditional (if and only if)", "Exclusive or", "Prepensor", "Prenonpensor", "Postpensor", 
+     "Postnonpensor", "Tautology", "Contradiction"};
          
-    private static final String[] UnJunctorNames =  {"Negation"}; // Zugriff über Junktorindex
+    private static final String[] UnJunctorNames =  {"Negation (not)"}; // Zugriff über Junktorindex
     
     // Tastatureingabe der Junktoren. (Dürfen einander nicht in die Quere kommen, also zB. nicht "->" und ">")
     public static String[][] BinJunctorCompletion = // Zugriff über Junktorindex
@@ -89,8 +89,8 @@ public class Symbols
         {"-<"},
         {},
         {"or"},
-        {"<-"},
-        {"->"},
+        {"<-", "<="},
+        {"->", "=>"},
         {},
         {"<>"},
         {"><", "xor"},
@@ -107,8 +107,8 @@ public class Symbols
         {"not", "~", "¬", "!"}
     };
         
-    public static final String True = "w";
-    public static final String False = "f";
+    public static final String True = "1";
+    public static final String False = "0";
     
     private static final boolean LogicFontInstalled = new Font("LogicFont", Font.PLAIN, 12).getFontName().equals("dialog") ? false : true;
     
@@ -203,26 +203,7 @@ public class Symbols
             return !v;
         else
             return false;   // Kommt nicht vor
-    }
-    
-//    public static String GetBindingRulesString()
-//    {
-//        StringBuffer sb = new StringBuffer(30);
-//        
-//        for (int i=MinBinding; i<=MaxBinding; i++)
-//        {
-//            for (int i2=0; i2<UJCount; i2++)
-//                if (GetUnJunctorBinding(i2) == i)
-//                    sb.append(GetUnJunctorSymbol(i2));
-//            
-//            for (int i2=0; i2<BJCount; i2++)
-//                if (GetBinJunctorBinding(i2) == i)
-//                    sb.append(GetBinJunctorSymbol(i2));
-//            if (i < MaxBinding)
-//                sb.append(" vor ");
-//        }
-//        return sb.toString();
-//    }
+    }    
     
     public static String GetBinJunctorDefString(int Junctor)
     {

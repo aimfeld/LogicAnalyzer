@@ -20,21 +20,21 @@ public class Parser
             AnalyzeMessager.AnalyzeMessage("processing "+s+" ...");
         
         if (s.length() == 0)  // notwendig, weil der Ausdruck "()" gewesen sein könnte
-            throw new SyntaxErrorException(s, "Allgemeiner Syntaxfehler", PutMessages);
+            throw new SyntaxErrorException(s, "General syntax error", PutMessages);
 
         if (s.length() > 1)
         {
             int JunctorPos = GetLeastBindingJunctorPos(s, PutMessages);            
                         
             if (JunctorPos == -1)
-                throw new SyntaxErrorException(s, "Kein Junktor gefunden", PutMessages);
+                throw new SyntaxErrorException(s, "No operator found", PutMessages);
             else
             {             //Junktor gefunden   
                 if (Symbols.IsUnJunctorSymbol(s.charAt(JunctorPos)) && JunctorPos != 0)
-                    throw new SyntaxErrorException(s, "Links eines einstelligen Junktors darf keine abgeschlossene Teilformel stehen.", PutMessages);
+                    throw new SyntaxErrorException(s, "Left of an unary operator there must not be a complete sub-formula.", PutMessages);
                 
                 if (PutMessages)
-                    AnalyzeMessager.AnalyzeMessage("junctor added: "+s.charAt(JunctorPos));                    
+                    AnalyzeMessager.AnalyzeMessage("operator added: "+s.charAt(JunctorPos));                    
                 
                 try 
                 {                                       
@@ -48,7 +48,7 @@ public class Parser
                 }
                 catch (IndexOutOfBoundsException e) 
                 {
-                    throw new SyntaxErrorException(s, "Allgemeiner Syntaxfehler", PutMessages);
+                    throw new SyntaxErrorException(s, "General syntax error", PutMessages);
                 }                
             }        
         }
@@ -59,10 +59,10 @@ public class Parser
                 n = new VariableNode(s.charAt(0));
                 
                 if (PutMessages)                    
-                    AnalyzeMessager.AnalyzeMessage("var added: "+s);                    
+                    AnalyzeMessager.AnalyzeMessage("variable added: "+s);                    
             }
             else
-                throw new SyntaxErrorException(s, "Allgemeiner Syntaxfehler", PutMessages);
+                throw new SyntaxErrorException(s, "General syntax error", PutMessages);
         
         return n;
     }
@@ -106,7 +106,7 @@ public class Parser
                     s = s.substring(1, s.length()-1);            
         }
         catch (IndexOutOfBoundsException e) {    // Falls s.length() == 0
-            throw new SyntaxErrorException(s, "Allgemeiner Syntaxfehler", PutMessages);
+            throw new SyntaxErrorException(s, "General syntax error", PutMessages);
         }
         return s;
     }
@@ -135,7 +135,7 @@ public class Parser
                 int CloseBracketPos = GetCloseBracketPos(s, i);
 
                 if (CloseBracketPos == -1)
-                    throw new SyntaxErrorException(s, "Klammern falsch gesetzt.", PutMessages);
+                    throw new SyntaxErrorException(s, "Invalid brackets", PutMessages);
                 else
                     i = CloseBracketPos; // Nach der Klammer weiterfahren
             }
@@ -150,7 +150,7 @@ class SyntaxErrorException extends Exception
 {
     SyntaxErrorException(String exp, String m, boolean PutMessages)
     {        
-        super("Syntaxfehler : " + m + (PutMessages ? " (siehe Analysefenster)" : ""));
+        super("Syntax error : " + m + (PutMessages ? " (see analysis window)" : ""));
         if (PutMessages)
             AnalyzeMessager.AnalyzeMessage("syntax error while processing "+exp);
     }
