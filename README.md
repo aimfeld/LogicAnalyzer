@@ -5,7 +5,7 @@ This program was developed in 2004 and is not actively maintained.
 
 ## Run LogicAnalyzer
 
-- Install the latest [Java Runtime Environment](http://www.java.com/en/download/)
+- Install the latest [Java Platform](http://www.java.com/en/download/)
 - Download [LogicAnalyzer](http://aimfeld.ch/logicanalyzer/LogicAnalyzer.jar) and double-click on LogicAnalyzer.jar (or right click and open with Java(TM) Platform SE binary).
 
 ## Developer requirements
