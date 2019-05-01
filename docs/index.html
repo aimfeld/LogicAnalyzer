@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>LogicAnalyzer Anleitung</title>
+<meta name="description" content="LogicAnalyzer ist ein Programm für Aussagenlogik und zur Prüfung von aussagenlogischen Schlussfolgerungen. Author: Adrian Imfeld">
+<meta name="keywords" content="LogicAnalyzer, logic, first order logic, propositional calculus, Logik, Aussagenlogik, Adrian Imfeld" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link href="style/aimfeld.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>LogicAnalyzer V1.5 - Anleitung</h1>
+<h2>Inhalt</h2>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <!--DWLayoutTable-->
+  <tr> 
+    <td height="19" colspan="2" valign="top"><a href="#Function">1. Was kann LogicAnalyzer?</a></td>
+  </tr>
+  <tr> 
+    <td height="19" colspan="2" valign="top"><a href="#Installation">2. Installation</a> 
+    </td>
+  </tr>
+  <tr> 
+    <td height="19" colspan="2" valign="top"><a href="#Execution">3. Programm 
+      ausführen</a></td>
+  </tr>
+  <tr> 
+    <td height="19" colspan="2" valign="top"><a href="#Logic">4. Wie funktioniert 
+      Aussagenlogik?</a></td>
+  </tr>
+  <tr> 
+    <td width="38" height="19">&nbsp;</td>
+    <td width="562" valign="top"><a href="#Overview">4.1 Einstieg</a></td>
+  </tr>
+  <tr> 
+    <td height="19">&nbsp;</td>
+    <td valign="top"><a href="#Junctortable">4.2 Die wichtigsten Junktoren</a></td>
+  </tr>
+  <tr> 
+    <td height="19">&nbsp;</td>
+    <td valign="top"><a href="#Conditional">4.3 Der Konditional</a></td>
+  </tr>
+  <tr> 
+    <td height="19">&nbsp;</td>
+    <td valign="top"><a href="#Inference">4.4 Aussagenlogische Schlussfolgerungen</a></td>
+  </tr>
+  <tr> 
+    <td height="19" colspan="2" valign="top"><a href="#Examples">5. Anwendungsbeispiele</a> </td>
+  </tr>
+  <tr> 
+    <td height="19">&nbsp;</td>
+    <td valign="top"> <a href="#Descartes"> 5.1 Beispiel Rene Descartes</a></td>
+  </tr>
+  <tr> 
+    <td height="19">&nbsp;</td>
+    <td valign="top"><a href="#Duden">5.2 Beispiel Duden</a></td>
+  </tr>
+  <tr> 
+    <td height="19">&nbsp;</td>
+    <td valign="top"><a href="#Illness">5.3 Beispiel Hirnversalzung und Nasophobie</a></td>
+  </tr>
+  <tr> 
+    <td height="19" colspan="2" valign="top"> <a href="#Remarks">6. Anmerkungen</a></td>
+  </tr>
+</table>
+<h2><a name="Function" id="Function"></a>1. Was kann LogicAnalyzer?</h2>
+<p>Das Programm ist in erster Linie für Leute gedacht, die sich bereits ein 
+  wenig mit Aussagenlogik auskennen. Trotzdem kann man auch als Anfänger 
+  einen Einblick in die ganze Sache gewinnen, z.B. mit der <a href="#Logic">Einführung 
+  in die Aussagenlogik </a>und den <a href="#Examples">Übungsbeispielen</a>. LogicAnalyzer baut auf Wahrheitstafeln auf.</p>
+<ul>
+  <li>Das Programm kann prüfen, ob eine aussagenlogische Formel eine Tautologie 
+    (logisch wahr) oder eine Antilogie (logisch falsch) ist.</li>
+  <li> Das Programm kann die Gültigkeit eines aussagenlogischen Schlusses 
+    prüfen.</li>
+  <li> Das Programm prüft automatisch, ob sich die Prämissen in einer 
+    aussagenlogischen Schlussfolgerung widersprechen oder nicht.</li>
+  <li> Es wird jeweils eine Wahrheitstafel ausgegeben.</li>
+</ul>
+<img src="images/logicanalyzer-gui.png">
+<h2><a name="Installation"></a>2. Installation</h2>
+<p>Es sollte zuerst die neuste Version der <a href="http://www.java.com/en/download/">Java-Unterstützung</a> 
+  installiert werden. Danach kann LogicAnalyzer hier als <a href="http://aimfeld.ch/logicanalyzer/LogicAnalyzer.jar">JAR-Version</a> 
+  heruntergeladen werden.</p>
+<h2><a name="Execution"></a>3. Programm ausführen</h2>
+<p>Die JAR-Version öffnet man mit Doppelklick auf LogicAnalyzer.jar. Falls das nicht
+  klappt, Rechtsklick auf die Datei und öffnen mit Java(TM) Platform SE binary.</p>
+<h2><a name="Logic" id="Logic"></a>4. Wie funktioniert Aussagenlogik?</h2>
+<h4><a name="Overview"></a>4.1 Einstieg</h4>
+<p>Hier soll nur ein ganz grober Einstieg in die Aussagenlogik gegeben werden. 
+  Wer sich für das Thema interessiert, sollte sich an seriösere Literatur 
+  wenden :).</p>
+<p>Eine <em>Aussage</em> ist eine sprachliche Äusserung, die entweder wahr 
+  oder falsch ist. &quot;Heute regnet es&quot; ist eine Aussage, während 
+  &quot;warum regnet es schon wieder?&quot; keine Aussage ist. Eine Aussage kann 
+  entweder einfach oder komplex sein. So ist z.B. die Aussage &quot;Wenn du vom 
+  Hochhaus hinunterspringst, stirbst du&quot; eine <em>komplexe Aussage</em>, 
+  zusammengesetzt aus zwei einfachen Teilaussagen. Nämlich aus 1.&quot;Du 
+  springst vom Hochhaus hinunter &quot; und 2. &quot;Du stirbst&quot;. Die Verknüpfung 
+  der Teilaussagen wird mit einem <em>Junktor</em> (Aussagenverknüpfung) 
+  analysiert, hier dem Konditional (siehe <a href="#Junctortable">Junktorentabelle</a>), 
+  welchen man umgangssprachlich mit &quot;wenn... dann...&quot; übersetzen 
+  könnte.<br>
+  Für die Aussagen verwendet man zur Abkürzung <em>Aussagenkonstanten</em> 
+  in Form von Kleinbuchstaben, typischerweise p, q, r, s, t etc. Für die 
+  Junktoren gibts Symbole, von denen die wichtigsten in der folgenden Junktoren-Tabelle 
+  aufgeführt sind.</p>
+<h4><a name="Junctortable"></a>4.2 Die wichtigsten Junktoren</h4>
+<table width="800" border="1" cellspacing="0" cellpadding="0">
+  <!--DWLayoutTable-->
+  <tr bgcolor="#CCCCCC"> 
+    <th width="120" height="21"><div align="center">Wahrheitswerte*</div></th>
+    <th width="69"><div align="center">Symbol</div></th>
+    <th width="110"><div align="center">Name</div></th>
+    <th width="247"><div align="center">normalsprachliche Deutung</div></th>
+    <th width="242" valign="top"><div align="center">künstliche Deutung</div></th>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w f f f</div></td>
+    <td><div align="center"><img src="Junktoren/Konjunktion.gif" width="15" height="14"></div></td>
+    <td><div align="center">Konjunktion</div></td>
+    <td><div align="center">und</div></td>
+    <td valign="top"><div align="center">stets beides</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w w w f</div></td>
+    <td><div align="center"><img src="Junktoren/Disjunktion.gif" width="13" height="14"></div></td>
+    <td><div align="center">Disjunktion</div></td>
+    <td><div align="center">oder</div></td>
+    <td valign="top"><div align="center">mindestens eines</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w f w w</div></td>
+    <td><div align="center"><img src="Junktoren/Konditional.gif" width="18" height="16"></div></td>
+    <td><div align="center">Konditional</div></td>
+    <td><div align="center">wenn, dann</div></td>
+    <td valign="top"><div align="center">das erste nicht ohne das zweite</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w f f w</div></td>
+    <td><div align="center"><img src="Junktoren/Bikonditional.gif" width="21" height="15"></div></td>
+    <td><div align="center">Bikonditional</div></td>
+    <td><div align="center">genau dann, wenn</div></td>
+    <td valign="top"><div align="center">beides oder keines</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">f w w f</div></td>
+    <td><div align="center"><img src="Junktoren/Kontravalenz.gif" width="20" height="16"></div></td>
+    <td><div align="center">Kontravalenz</div></td>
+    <td><div align="center">entweder oder</div></td>
+    <td valign="top"><div align="center">genau eines von beiden</div></td>
+    </tr>
+</table>
+<p> * Die Wahrheitwerte kommen aus der Verknüpfung von zwei Aussagen durch 
+  den jeweiligen Junktor zustande:</p>
+<table width="800" border="1" cellspacing="0" cellpadding="0">
+  <!--DWLayoutTable-->
+  <tr bgcolor="#CCCCCC"> 
+    <th width="29" height="22"><div align="center">p</div></th>
+    <th width="31"><div align="center">q</div></th>
+    <th width="142"><div align="center">Konjunktion p<img src="Junktoren/Konjunktion.gif" width="15" height="14">q</div></th>
+    <th width="139"><div align="center">Disjunktion p<img src="Junktoren/Disjunktion.gif" width="13" height="14">q</div></th>
+    <th width="143"><div align="center">Konditional p<img src="Junktoren/Konditional.gif" width="18" height="16">q</div></th>
+    <th width="156" valign="top"><div align="center">Bikonditional p<img src="Junktoren/Bikonditional.gif" width="21" height="15">q</div></th>
+    <th width="144" valign="top"><div align="center">Kontravalenz p<img src="Junktoren/Kontravalenz.gif" width="20" height="16">q</div></th>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td valign="top"><div align="center">w</div></td>
+    <td valign="top"><div align="center">f</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">f</div></td>
+    <td valign="top"><div align="center">f</div></td>
+    <td valign="top"><div align="center">w</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">f</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td valign="top"><div align="center">f</div></td>
+    <td valign="top"><div align="center">w</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">f</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">w</div></td>
+    <td valign="top"><div align="center">w</div></td>
+    <td valign="top"><div align="center">f</div></td>
+  </tr>
+</table>
+<p>Ausserdem gibts noch die Negation (<img src="Junktoren/Negation.gif" width="14" height="14">), 
+  welche den Wahrheitswert einer Aussage umkehrt. Wenn p wahr ist, dann ist <img src="Junktoren/Negation.gif" width="14" height="14">p 
+  falsch und umgekehrt. </p>
+<p>Es muss darauf hingewiesen werden, dass es oft nicht einfach ist, alltagssprachliche 
+  Aussagen mit aussagenlogischen Formeln zu analysieren. So wird z.B. &quot;Ich 
+  gehe an die Uni, obwohl ich keine Lust habe&quot; mit p<img src="Junktoren/Konjunktion.gif" width="15" height="14">q 
+  (ich gehe an die Uni und ich habe keine Lust) analysiert. Das Widerstreben des 
+  &quot;obwohl&quot; fällt völlig weg. Hier sieht man, dass in der Aussagenlogik 
+  der Inhalt der sprachlichen Aussagen nicht interessiert, sondern dass es nur 
+  um wahr oder falsch geht. </p>
+<p>Ausserdem können nicht alle Aussagen analysiert werden mit Aussagenlogik. 
+  Daher gibts noch andere, kompliziertere Logik-Arten: Prädikatenlogik, Quantorenlogik, 
+  Modallogik etc.</p>
+<h4><a name="Conditional"></a>4.3 Der Konditional</h4>
+<p> Konditionalsätze (wenn... dann...) sind speziell trickreich. Sie sind 
+  keine Kausalsätze, sondern Bedingungssätze, d.h. Sätze, die ein 
+  Bedingungsverhältnis ausdrücken, kein Ursache-Wirkung-Verhältnis. 
+  Der Kausalsatz &quot;Die Kugel fällt zu Boden, <em>weil</em> ich sie losgelassen 
+  habe, ist nicht formalisierbar mit einem Konditional. Der Bedingungssatz &quot;<em>Wenn</em> 
+  ich die Kugel loslasse, <em>dann</em> fällt sie zu Boden&quot; allerdings 
+  schon.</p>
+<p>Ich erkläre den Konditional anhand des Beispiels &quot;Wenn Hans sich 
+  auf die Prüfung vorbereitet, dann besteht er die Prüfung&quot; (p<img src="Junktoren/Konditional.gif" width="18" height="16">q). 
+</p>
+<ol>
+  <li> Angenommen Hans bereitet sich auf die Prüfung vor (p), dann ist klar, 
+    dass man folgern kann, dass er die Prüfung besteht (q). Das Vorbeiten 
+    (p) ist eine <em>hinreichende Bedingung</em> für das Bestehen (q). Diese 
+    Art zu Folgern nennt man <em>Modus Ponens</em>. </li>
+  <li>Aber wie sieht es nun aus, wenn Hans sich nicht auf die Prüfung vorbereitet 
+    (<img src="Junktoren/Negation.gif" width="14" height="14">p)? Kann man dann 
+    folgern, dass er die Prüfung nicht besteht (<img src="Junktoren/Negation.gif" width="14" height="14">q)? 
+    Nein, Hans könnte einfach auch nur Glück haben an der Prüfung 
+    und trotzdem bestehen. Unsere Regel (p<img src="Junktoren/Konditional.gif" width="18" height="16">q) 
+    schliesst dies ja nicht aus.</li>
+  <li> Nehmen wir an, Hans besteht die Prüfung nicht (<img src="Junktoren/Negation.gif" width="14" height="14">q). 
+    Wir können nun folgern, dass er sich nicht vorbereitet hat (<img src="Junktoren/Negation.gif" width="14" height="14">p), 
+    denn hätte er sich vorbereitet (p), dann hätte er Aufgrund unserer 
+    Regel (p<img src="Junktoren/Konditional.gif" width="18" height="16">q) bestanden. 
+    Diese Art zu Folgern nennt man <em>Modus Tollens</em>. </li>
+  <li>Wie sieht es nun aus, wenn wir annehmen, dass Hans die Prüfung bestanden 
+    hat (q)? Können wir nun folgern, dass er sich auf die Prüfung vorbereitet 
+    hat (p)? Nein, aus dem gleichen Grund wie bei Punkt 2: Er könnte einfach 
+    Glück gehabt haben. Das Bestehen (q) ist zwar eine <em>notwendige Bedingung</em> 
+    für das Zutreffen der Vorbereitung (p), d.h. keine Vorbereitung ohne 
+    Bestehen der Prüfung, aber keine <em>hinreichende Bedingung </em>dafür.</li>
+</ol>
+<p>Zusammengefasst: Wenn p<img src="Junktoren/Konditional.gif" width="18" height="16">q 
+  gilt, dann können wir von p auf q (<em>Modus Ponens</em>) und von <img src="Junktoren/Negation.gif" width="14" height="14">q 
+  auf <img src="Junktoren/Negation.gif" width="14" height="14">p (<em>Modus 
+  Tollens</em>) schliessen, aber nicht von <img src="Junktoren/Negation.gif" width="14" height="14">p 
+  auf <img src="Junktoren/Negation.gif" width="14" height="14">q und auch nicht 
+  von q auf p.</p>
+<h4><a name="Inference"></a>4.4 Aussagenlogische Schlussfolgerungen</h4>
+<p>Von einer aussagenlogischen Schlussfolgerung spricht man, wenn von einer oder 
+  mehreren Aussagen (Prämissen) auf eine andere Aussage (Konklusion) geschlossen 
+  wird. Eine Schlussfolgerung ist dann gültig, wenn die als wahr angenommenen 
+  Prämissen zwingend zum Wahrsein der Konklusion führen, sonst nicht. 
+</p>
+<p>Beispiel: Die Sonne scheint. Wenn die Sonne scheint, dann gehts mir gut. Also 
+  gehts mir gut.<br>
+  (p: Die Sonne scheint. q: Es geht mir gut.)<br>
+  <br>
+  Prämissen:<br>
+  1 . p<br>
+  2 . p<img src="Junktoren/Konditional.gif" width="18" height="16">q<br>
+  <br>
+  Konklusion:<br>
+  q</p>
+<p>Die Prämissen werden mit einer <font color="#FF0000">Konjunktion</font> 
+  (<img src="Junktoren/Konjunktion.gif" width="15" height="14">) verknüpft 
+  und dann wird ein <font color="#0000FF">Konditional</font> mit der Konklusion 
+  gebildet. Die Schlussfolgerung behauptet folgendes: <font color="#0000FF">Wenn</font> 
+  Prämisse 1 wahr ist <font color="#FF0000">und</font> Prämisse 2 wahr 
+  ist, <font color="#0000FF">dann</font> ist die Konklusion wahr. Somit hängt 
+  die Gültigkeit der Schlussfolgerung von den möglichen Wahrheitswerten 
+  der zusammengesetzten Aussage (Schlusskonditional) p<img src="Junktoren/Konjunktion.gif" width="15" height="14">(p<img src="Junktoren/Konditional.gif" width="18" height="16">q)<img src="Junktoren/Konditional.gif" width="18" height="16">q 
+  ab:</p>
+<table width="800" border="1" cellspacing="0" cellpadding="0">
+  <!--DWLayoutTable-->
+  <tr bgcolor="#CCCCCC"> 
+    <th width="118" height="41"><div align="center">p<br>
+        (Prämisse 1)</div></th>
+    <th width="123"><div align="center">q <br>
+        (Konklusion)</div></th>
+    <th width="125"><div align="center">p<img src="Junktoren/Konditional.gif" width="18" height="16">q<br>
+        (Prämisse 2)</div></th>
+    <th width="234"><div align="center">p<img src="Junktoren/Konjunktion.gif" width="15" height="14">(p<img src="Junktoren/Konditional.gif" width="18" height="16">q)<br>
+        (Konjunktion der Prämissen)</div></th>
+    <th width="188" valign="top"><div align="center">p<img src="Junktoren/Konjunktion.gif" width="15" height="14">(p<img src="Junktoren/Konditional.gif" width="18" height="16">q)<img src="Junktoren/Konditional.gif" width="18" height="16">q<br>
+        (Schlusskonditional)</div></th>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td valign="top"><div align="center">w</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">w</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">f</div></td>
+    <td valign="top"><div align="center">w</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">f</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">f</div></td>
+    <td valign="top"><div align="center">w</div></td>
+  </tr>
+  <tr> 
+    <td height="21"><div align="center">f</div></td>
+    <td><div align="center">f</div></td>
+    <td><div align="center">w</div></td>
+    <td><div align="center">f</div></td>
+    <td valign="top"><div align="center">w</div></td>
+    </tr>
+</table>
+<p>Hier sieht man, dass der Schlusskonditional in allen möglichen Kombinationen 
+  der Wahrheitswerte der einfachen Aussagen (p, q) wahr ist. Es gibt keine Möglichkeit, 
+  dass der Schlusskonditional falsch wird, also ist der Schluss gültig. Der 
+  Schlusskonditional ist eine <em>logisch wahre Aussage</em>. Eine <em>logisch 
+  wahre Aussage </em>ist unter allen Kombinationen der Wahrheitswerte Ihrer Aussagenkonstanten 
+  (p, q , r etc.) wahr und wird auch <em>Tautologie </em>genannt. Eine <em>logisch 
+  falsche Aussage</em> ist unter allen Kombinationen der Wahrheitswerte Ihrer 
+  Aussagenkonstanten (p, q , r etc.) falsch und wird auch <em>Antilogie</em> genannt.</p>
+<p>Für die Aussagenlogik gibts witzige Anwendungsmöglichkeiten. Zum 
+  Beispiel philosophische Gottesbeweise überprüfen, die Aussagen von 
+  Politikern lächerlich machen, Schlupflöcher in juristischen Paragraphen 
+  suchen etc. :). Im Folgenden kommen Beispiele und die Anleitung, wie man sie 
+  mit Hilfe von LogicAnalyzer lösen kann.</p>
+<h2><a name="Examples"></a>5. Anwendungsbeispiele</h2>
+<h4><a name="Descartes"></a>5.1 Rene Descartes</h4>
+  
+<p>Der Dualist Rene Descartes behauptet in etwa folgendes (Meditation 6, Absatz 
+  19): <br>
+  Der Körper ist seiner Natur nach teilbar. Wenn Geist und Körper eines 
+  und dasselbe sind, dann ist der Geist teilbar.<br>
+  Der Geist ist seiner Natur nach aber unteilbar. Daraus folgt: Geist und Körper 
+  sind nicht eines und dasselbe.</p>
+<p>Wir wollen nun prüfen, ob Descartes' Argument gültig ist. Ein gültiges 
+  Argument bedeutet: Wenn wir die Prämissen (Voraussetzungen) akzeptieren, 
+  dann müssen wir nach aussagenlogischen Regeln zwingend auch die Konklusion 
+  (Schlussfolgerung) akzeptieren.</p>
+<p>Wir führen folgende Symbole (Aussagenkonstanten) ein:</p>
+<ul>
+  <li> p: Der Körper ist seiner Natur nach teilbar.</li>
+  <li> q: Der Geist ist seiner Natur nach teilbar.</li>
+  <li> r: Geist und Körper sind eines und dasselbe.</li>
+</ul>
+<p>Die Prämissen und die Konklusion können nun so formalisiert werden:</p>
+<ul>
+  <li>Prämisse 1: p (p ist wahr)</li>
+  <li>Prämisse 2: r<img src="Junktoren/Konditional.gif" width="18" height="16">q 
+    (Wenn r wahr ist, dann ist auch q wahr)</li>
+  <li> Prämisse 3: <img src="Junktoren/Negation.gif" width="14" height="14">q 
+    (q ist falsch)</li>
+  <li> Konklusion: <img src="Junktoren/Negation.gif" width="14" height="14">r 
+    (r ist falsch)</li>
+</ul>
+<p>Vorgehen mit LogicAnalyzer: 
+</p>
+<p>Hinweis: Die Aussagenkonstanten p, q etc. werden per Tastatur eingeben, die 
+  Junktoren per Klick auf den entsprechenden Button oder mit der Tastatur-Alternativeingabe 
+  (&quot;-&gt;&quot; wird automatisch zu &quot;<img src="Junktoren/Konditional.gif" width="18" height="16">&quot;, 
+  &quot;and&quot; wird zu &quot;<img src="Junktoren/Konjunktion.gif" width="15" height="14">&quot;, 
+  etc.). Die Alternativeingaben werden beim Zeigen mit der Maus auf einen Junktor-Button 
+  als Tooltip angezeigt.</p>
+<ol>
+  <li> &quot;Aussagenlogischen Schluss analysieren&quot; selektieren.</li>
+  <li>Das Prämissen-Eingabefeld anklicken, p eingeben und auf &quot;Hinzufügen&quot; 
+    klicken.</li>
+  <li>r, <img src="Junktoren/Konditional.gif" width="18" height="16">, q eingeben 
+    und dann auf &quot;Hinzufügen&quot; klicken.</li>
+  <li><img src="Junktoren/Negation.gif" width="14" height="14">, q eingeben und 
+    dann auf auf &quot;Hinzufügen&quot; klicken.</li>
+  <li> Das Konklusion-Eingabefeld anklicken und <img src="Junktoren/Negation.gif" width="14" height="14">, 
+    r eingeben.</li>
+  <li> Auf den &quot;Analysieren&quot; Knopf klicken.</li>
+  <li>Das Resultat im Analysefenster ablesen.</li>
+</ol>
+<p>Ist der Schluss von Descartes gültig? Ist der Monismus von Spinoza nun 
+  widerlegt?</p>
+<h4><a name="Duden"></a>5.2 Beispiel Duden</h4>
+<p>Im alten Duden Rechtschreibung (Mannheim, 1980. S. 61-62) findet sich folgende 
+  Regel:</p>
+<p> R204: Treffen bei Wortbildungen drei gleiche Konsonanten zusammen, dann setzt 
+  man nur zwei, wenn ein Vokal folgt. (Bsp. Schiffahrt)</p>
+<p>Dazu wird die Ergänzung formuliert:</p>
+<p>Ergänzung: Folgt auf drei gleiche Konsonanten noch ein anderer, vierter 
+  Konsonant, dann darf keiner von ihnen wegfallen.</p>
+<p>Die Frage ist: Folgt die Ergänzung logisch schon aus R204? </p>
+<p>Wir führen folgende Symbole (Aussagenkonstanten) ein:</p>
+<ul>
+  <li> p: Es treffen bei einer Wortbildung drei gleiche Konsonanten zusammen.</li>
+  <li> q: Es folgt ein Vokal.</li>
+  <li> r: Man setzt nur 2 Konsonanten.</li>
+</ul>
+<p>Die Prämissen und die Konklusion können nun so formalisiert werden:</p>
+<ul>
+  <li>Prämisse (Regel 204): <br>
+    p<img src="Junktoren/Konjunktion.gif" width="15" height="14">q<img src="Junktoren/Konditional.gif" width="18" height="16">r 
+    (Wenn p und q wahr sind, dann ist r wahr)</li>
+  <li>Konklusion (Ergänzung):<br>
+    p<img src="Junktoren/Konjunktion.gif" width="15" height="14"><img src="Junktoren/Negation.gif" width="14" height="14">q<img src="Junktoren/Konditional.gif" width="18" height="16"><img src="Junktoren/Negation.gif" width="14" height="14">r 
+    (Wenn p wahr und q falsch ist, dann ist r falsch) </li>
+</ul>
+<p>Vorgehen mit LogicAnalyzer: 
+</p>
+<ol>
+  <li> &quot;Aussagenlogischen Schluss analysieren&quot; selektieren.</li>
+  <li> Das Prämissen-Eingabefeld anklicken und p, <img src="Junktoren/Konjunktion.gif" width="15" height="14">, 
+    q, <img src="Junktoren/Konditional.gif" width="18" height="16">, r, eingeben 
+    und dann auf &quot;Hinzufügen&quot; klicken.</li>
+  <li> Das Konklusion-Eingabefeld anklicken und p, <img src="Junktoren/Konjunktion.gif" width="15" height="14">, 
+    <img src="Junktoren/Negation.gif" width="14" height="14">, q, <img src="Junktoren/Konditional.gif" width="18" height="16">, 
+    <img src="Junktoren/Negation.gif" width="14" height="14">, r eingeben.</li>
+  <li> Auf den &quot;Analysieren&quot; Button klicken.</li>
+  <li> Resultat im Analysefenster ablesen.</li>
+</ol>
+<p>Folgt nun die Ergänzung schon logisch aus Regel 204 oder nicht? Ist die 
+  Regel von der Logik her überflüssig?<br>
+  ( = Ist der Schluss gültig oder nicht?)</p>
+<h2><a name="Illness"></a>5.3 Beispiel Hirnversalzung und Nasophobie</h2>
+<p>Hier kommt noch ein lustiges Rätsel, dass ihr nun selbstständig probieren 
+  könnt:</p>
+<p>Wolfgang fühlt sich krank und kommt ins Krankenhaus. Dort wird er von 
+  einem Professor und einem Medizinstudenten untersucht. Danach entwickelt sich 
+  folgende ärztliche Diskussion:<br>
+  <br>
+  Professor: <em>Bei dem Patienten kommen nur folgende sieben Krankheiten in Frage: 
+  Gummikauzwang, Hirnversalzung, Nasophobie, Denkinsuffzienz, Riechneurose, Zehsyndrom 
+  oder Sitzanomalie.</em><br>
+  <em>Angenommen, es ist Hirnversalzung?</em> versucht's der Student.<br>
+  <em>Dann kann er nicht an Gummikauzwang leiden</em> sagt streng der Professor.<br>
+  Student: <em>Wenn er Gummikauzwang hat, jedoch nicht an Riechneurose leidet?</em><br>
+  Professor: <em>Dann hat er Denkinsuffzienz. Und wenn der Patient nicht an Nasophobie 
+  leidet, dann hat er, falls er nicht an Gummikauzwang erkrankt ist, das Zehsyndrom 
+  oder Denkinsuffzienz, oder gar diese beiden Leiden.<br>
+  </em> Student: <em>Wenn er nicht an der Sitzanomalie leidet, . . .</em><br>
+  Professor:<em> . . . dann hat er auch keine Denkinsuffzienz.</em><br>
+  Student: <em>Wenn der Patient unter Gummikauzwang leidet, . . .</em><br>
+  Professor:<em> . . . dann hat er entweder eine Sitzanomalie oder Hirnversalzung.</em><br>
+  <em>Falls er eine Riechneurose hat, dann hat er entweder Nasophobie oder Gummikauzwang.</em><br>
+  Student: <em>Wenn das Zehsyndrom vorliegt, . . .</em><br>
+  Professor:<em> . . . dann hat er auch eine Riechneurose, und falls er an Sitzanomalie 
+  erkrankt ist, hat er auch Nasophobie. Falls er Nasophobie hat, ist zwar eine 
+  Riechneurose auszuschliessen, doch liegt dann ein Gummikauzwang vor.</em><br>
+  <br>
+  Nach dieser Unterhaltung ist der Student völlig verwirrt.<br>
+  Welche Krankheiten hat der Patient nun, welche nicht?<br>
+  <br>
+  Tipp: Für jede einzelne Krankheit eine Aussagenkonstante (p,q,r,...) definieren, 
+  die Informationen korrekt mit Prämissen ausdrücken und das Problem 
+  mit mehreren einzelnen Schlussfolgerungen mit LogicAnalyzer lösen!</p>
+<h2><a name="Remarks"></a>6. Anmerkungen</h2>
+<ul>
+  <li>Der <a href="https://github.com/aimfeld/LogicAnalyzer">Java-Quellcode</a> ist auf Github erhältlich.</li>
+  <li>Kontakt: Adrian Imfeld (aimfeld@aimfeld.ch)</li>
+</ul>
+<p>&copy; by Adrian Imfeld </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Lösung zur Aufgabe mit den Krankheiten:</p>
+<p>Die Prämissen werden mit Aussagekonstanten für Gummikauzwang (g), 
+  Hirnversalzung (h), Nasophobie (n), Denkinsuffzienz (d), Riechneurose (r), Zehsyndrom 
+  (z), Sitzanomalie (s) folgendermassen formalisiert:</p>
+<p><img src="images/solution.png" width="678" height="776"></p>
+<p>Dann kann als Konklusion einzeln der Reihe nach g, h, n, etc. getestet werden. 
+  Der Patient hat Gummikauzwang (g), Nasophobie (n), Denkinsuffzienz (d) und Sitzanomalie 
+  (s), aber keine Hirnversalzung (h), keine Riechneurose (r) und kein Zehsyndrom 
+  (z). Der Screenshot zeigt die Gültigkeit dieser Konklusion.</p>
+</body>
+</html>
